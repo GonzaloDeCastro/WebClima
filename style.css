@@ -86,3 +86,13 @@ img{
     font-size: 30px;
     border-radius: 10px;
 }
+
+.desc, .temp, .viento, .pais{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icon img{
+    width: 150px;
+    height: 150px;
+}
