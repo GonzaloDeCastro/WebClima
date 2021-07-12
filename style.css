@@ -56,16 +56,13 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 10px;
+    padding: 0px;
 }
 
 .contenedorDias div{
-    width: 95px;
     background-color: white;
     margin: 5px;
     text-align: center;
-    line-height: 95px;
-    font-size: 30px;
     border-radius: 10px;
 }
 
@@ -97,6 +94,3 @@ img{
     height: 150px;
 }
 
-.prueba{
-    color: red;
-}
