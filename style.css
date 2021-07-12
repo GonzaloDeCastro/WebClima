@@ -60,11 +60,11 @@ img{
 }
 
 .contenedorDias div{
-    width: 12%;
+    width: 95px;
     background-color: white;
     margin: 5px;
     text-align: center;
-    line-height: 100px;
+    line-height: 95px;
     font-size: 30px;
     border-radius: 10px;
 }
@@ -74,11 +74,11 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 10px;
+    padding: 5px;
 }
 
 .contenedorDatos div{
-    width: 30%;
+    width: 230px;
     background-color: white;
     margin: 5px;
     text-align: center;
@@ -87,12 +87,16 @@ img{
     border-radius: 10px;
 }
 
-.desc, .temp, .viento, .pais{
-    font-size: 20px;
+.desc, .temp, .viento, .pais, .humedad, .presion,.visibilidad,.sensacionTermica{
+    font-size: 1rem;
     font-weight: bold;
 }
 
 .icon img{
     width: 150px;
     height: 150px;
+}
+
+.prueba{
+    color: red;
 }
