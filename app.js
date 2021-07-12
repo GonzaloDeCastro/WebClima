@@ -57,21 +57,21 @@ fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latValue}&lon=${lon
     .then(datoFuturo => {
         console.log(datoFuturo)
         var hoyValue = new Date(datoFuturo['daily'][0]['dt']*1000).toLocaleString();
-        var sunValue = [new Date(datoFuturo['daily'][1]['dt']*1000).toLocaleString(),datoFuturo['daily'][1]['weather'][0]['icon'],datoFuturo['daily'][1]['weather'][0]['description']];
-        var monValue = [new Date(datoFuturo['daily'][2]['dt']*1000).toLocaleString(),datoFuturo['daily'][2]['weather'][0]['icon'],datoFuturo['daily'][2]['weather'][0]['description']];
-        var tueValue = [new Date(datoFuturo['daily'][3]['dt']*1000).toLocaleString(),datoFuturo['daily'][3]['weather'][0]['icon'],datoFuturo['daily'][3]['weather'][0]['description']];
-        var wedValue = [new Date(datoFuturo['daily'][4]['dt']*1000).toLocaleString(),datoFuturo['daily'][4]['weather'][0]['icon'],datoFuturo['daily'][4]['weather'][0]['description']];
-        var thuValue = [new Date(datoFuturo['daily'][5]['dt']*1000).toLocaleString(),datoFuturo['daily'][5]['weather'][0]['icon'],datoFuturo['daily'][5]['weather'][0]['description']];
-        var friValue = [new Date(datoFuturo['daily'][6]['dt']*1000).toLocaleString(),datoFuturo['daily'][6]['weather'][0]['icon'],datoFuturo['daily'][6]['weather'][0]['description']];
-        var satValue = [new Date(datoFuturo['daily'][7]['dt']*1000).toLocaleString(),datoFuturo['daily'][7]['weather'][0]['icon'],datoFuturo['daily'][7]['weather'][0]['description']];
+        var sunValue = [new Date(datoFuturo['daily'][1]['dt']*1000).toLocaleString(),datoFuturo['daily'][1]['weather'][0]['icon'],datoFuturo['daily'][1]['temp']['day']];
+        var monValue = [new Date(datoFuturo['daily'][2]['dt']*1000).toLocaleString(),datoFuturo['daily'][2]['weather'][0]['icon'],datoFuturo['daily'][2]['temp']['day']];
+        var tueValue = [new Date(datoFuturo['daily'][3]['dt']*1000).toLocaleString(),datoFuturo['daily'][3]['weather'][0]['icon'],datoFuturo['daily'][3]['temp']['day']];
+        var wedValue = [new Date(datoFuturo['daily'][4]['dt']*1000).toLocaleString(),datoFuturo['daily'][4]['weather'][0]['icon'],datoFuturo['daily'][4]['temp']['day']];
+        var thuValue = [new Date(datoFuturo['daily'][5]['dt']*1000).toLocaleString(),datoFuturo['daily'][5]['weather'][0]['icon'],datoFuturo['daily'][5]['temp']['day']];
+        var friValue = [new Date(datoFuturo['daily'][6]['dt']*1000).toLocaleString(),datoFuturo['daily'][6]['weather'][0]['icon'],datoFuturo['daily'][6]['temp']['day']];
+        var satValue = [new Date(datoFuturo['daily'][7]['dt']*1000).toLocaleString(),datoFuturo['daily'][7]['weather'][0]['icon'],datoFuturo['daily'][7]['temp']['day']];
         hoy.innerHTML = `<p>${hoyValue.substring(0,9)}</p>`;
-        sun.innerHTML = `<p>${sunValue[0].substring(0,4)}</p><img src="imgs/${sunValue[1]}.png"></img><p>${sunValue[2]}</p>`;
-        mon.innerHTML = `<p>${monValue[0].substring(0,4)}</p><img src="imgs/${monValue[1]}.png"></img><p>${monValue[2]}</p>`;
-        tue.innerHTML = `<p>${tueValue[0].substring(0,4)}</p><img src="imgs/${tueValue[1]}.png"></img><p>${tueValue[2]}</p>`;
-        wed.innerHTML = `<p>${wedValue[0].substring(0,4)}</p><img src="imgs/${wedValue[1]}.png"></img><p>${wedValue[2]}</p>`;
-        thu.innerHTML = `<p>${thuValue[0].substring(0,4)}</p><img src="imgs/${thuValue[1]}.png"></img><p>${thuValue[2]}</p>`;
-        fri.innerHTML = `<p>${friValue[0].substring(0,4)}</p><img src="imgs/${friValue[1]}.png"></img><p>${friValue[2]}</p>`;
-        sat.innerHTML = `<p>${satValue[0].substring(0,4)}</p><img src="imgs/${satValue[1]}.png"></img><p>${satValue[2]}</p>`;
+        sun.innerHTML = `<p>${sunValue[0].substring(0,4)}</p><img src="imgs/${sunValue[1]}.png"></img><p>${parseInt(sunValue[2] - 273)}°</p>`;
+        mon.innerHTML = `<p>${monValue[0].substring(0,4)}</p><img src="imgs/${monValue[1]}.png"></img><p>${parseInt(monValue[2] - 273)}°</p>`;
+        tue.innerHTML = `<p>${tueValue[0].substring(0,4)}</p><img src="imgs/${tueValue[1]}.png"></img><p>${parseInt(tueValue[2] - 273)}°</p>`;
+        wed.innerHTML = `<p>${wedValue[0].substring(0,4)}</p><img src="imgs/${wedValue[1]}.png"></img><p>${parseInt(wedValue[2] - 273)}°</p>`;
+        thu.innerHTML = `<p>${thuValue[0].substring(0,4)}</p><img src="imgs/${thuValue[1]}.png"></img><p>${parseInt(thuValue[2] - 273)}°</p>`;
+        fri.innerHTML = `<p>${friValue[0].substring(0,4)}</p><img src="imgs/${friValue[1]}.png"></img><p>${parseInt(friValue[2] - 273)}°</p>`;
+        sat.innerHTML = `<p>${satValue[0].substring(0,4)}</p><img src="imgs/${satValue[1]}.png"></img><p>${parseInt(satValue[2] - 273)}°</p>`;
 
     })       
 })
@@ -112,20 +112,22 @@ boton.addEventListener('click', function(){
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latValue}&lon=${lonValue}&appid=e30242ec84252ed6796422a415839983`)
         .then(response => response.json())
         .then(datoFuturo => {
-            var sunValue = [new Date(datoFuturo['daily'][1]['dt']*1000).toLocaleString(),datoFuturo['daily'][1]['weather'][0]['icon'],datoFuturo['daily'][1]['weather'][0]['description']];
-            var monValue = [new Date(datoFuturo['daily'][2]['dt']*1000).toLocaleString(),datoFuturo['daily'][2]['weather'][0]['icon'],datoFuturo['daily'][2]['weather'][0]['description']];
-            var tueValue = [new Date(datoFuturo['daily'][3]['dt']*1000).toLocaleString(),datoFuturo['daily'][3]['weather'][0]['icon'],datoFuturo['daily'][3]['weather'][0]['description']];
-            var wedValue = [new Date(datoFuturo['daily'][4]['dt']*1000).toLocaleString(),datoFuturo['daily'][4]['weather'][0]['icon'],datoFuturo['daily'][4]['weather'][0]['description']];
-            var thuValue = [new Date(datoFuturo['daily'][5]['dt']*1000).toLocaleString(),datoFuturo['daily'][5]['weather'][0]['icon'],datoFuturo['daily'][5]['weather'][0]['description']];
-            var friValue = [new Date(datoFuturo['daily'][6]['dt']*1000).toLocaleString(),datoFuturo['daily'][6]['weather'][0]['icon'],datoFuturo['daily'][6]['weather'][0]['description']];
-            var satValue = [new Date(datoFuturo['daily'][7]['dt']*1000).toLocaleString(),datoFuturo['daily'][7]['weather'][0]['icon'],datoFuturo['daily'][7]['weather'][0]['description']];
-            sun.innerHTML = `<p>${sunValue[0].substring(0,4)}</p><img src="imgs/${sunValue[1]}.png"></img><p>${sunValue[2]}</p>`;
-            mon.innerHTML = `<p>${monValue[0].substring(0,4)}</p><img src="imgs/${monValue[1]}.png"></img><p>${monValue[2]}</p>`;
-            tue.innerHTML = `<p>${tueValue[0].substring(0,4)}</p><img src="imgs/${tueValue[1]}.png"></img><p>${tueValue[2]}</p>`;
-            wed.innerHTML = `<p>${wedValue[0].substring(0,4)}</p><img src="imgs/${wedValue[1]}.png"></img><p>${wedValue[2]}</p>`;
-            thu.innerHTML = `<p>${thuValue[0].substring(0,4)}</p><img src="imgs/${thuValue[1]}.png"></img><p>${thuValue[2]}</p>`;
-            fri.innerHTML = `<p>${friValue[0].substring(0,4)}</p><img src="imgs/${friValue[1]}.png"></img><p>${friValue[2]}</p>`;
-            sat.innerHTML = `<p>${satValue[0].substring(0,4)}</p><img src="imgs/${satValue[1]}.png"></img><p>${satValue[2]}</p>`;
+            var hoyValue = new Date(datoFuturo['daily'][0]['dt']*1000).toLocaleString();
+            var sunValue = [new Date(datoFuturo['daily'][1]['dt']*1000).toLocaleString(),datoFuturo['daily'][1]['weather'][0]['icon'],datoFuturo['daily'][1]['temp']['day']];
+            var monValue = [new Date(datoFuturo['daily'][2]['dt']*1000).toLocaleString(),datoFuturo['daily'][2]['weather'][0]['icon'],datoFuturo['daily'][2]['temp']['day']];
+            var tueValue = [new Date(datoFuturo['daily'][3]['dt']*1000).toLocaleString(),datoFuturo['daily'][3]['weather'][0]['icon'],datoFuturo['daily'][3]['temp']['day']];
+            var wedValue = [new Date(datoFuturo['daily'][4]['dt']*1000).toLocaleString(),datoFuturo['daily'][4]['weather'][0]['icon'],datoFuturo['daily'][4]['temp']['day']];
+            var thuValue = [new Date(datoFuturo['daily'][5]['dt']*1000).toLocaleString(),datoFuturo['daily'][5]['weather'][0]['icon'],datoFuturo['daily'][5]['temp']['day']];
+            var friValue = [new Date(datoFuturo['daily'][6]['dt']*1000).toLocaleString(),datoFuturo['daily'][6]['weather'][0]['icon'],datoFuturo['daily'][6]['temp']['day']];
+            var satValue = [new Date(datoFuturo['daily'][7]['dt']*1000).toLocaleString(),datoFuturo['daily'][7]['weather'][0]['icon'],datoFuturo['daily'][7]['temp']['day']];
+            hoy.innerHTML = `<p>${hoyValue.substring(0,9)}</p>`;
+            sun.innerHTML = `<p>${sunValue[0].substring(0,4)}</p><img src="imgs/${sunValue[1]}.png"></img><p>${parseInt(sunValue[2] - 273)}°</p>`;
+            mon.innerHTML = `<p>${monValue[0].substring(0,4)}</p><img src="imgs/${monValue[1]}.png"></img><p>${parseInt(monValue[2] - 273)}°</p>`;
+            tue.innerHTML = `<p>${tueValue[0].substring(0,4)}</p><img src="imgs/${tueValue[1]}.png"></img><p>${parseInt(tueValue[2] - 273)}°</p>`;
+            wed.innerHTML = `<p>${wedValue[0].substring(0,4)}</p><img src="imgs/${wedValue[1]}.png"></img><p>${parseInt(wedValue[2] - 273)}°</p>`;
+            thu.innerHTML = `<p>${thuValue[0].substring(0,4)}</p><img src="imgs/${thuValue[1]}.png"></img><p>${parseInt(thuValue[2] - 273)}°</p>`;
+            fri.innerHTML = `<p>${friValue[0].substring(0,4)}</p><img src="imgs/${friValue[1]}.png"></img><p>${parseInt(friValue[2] - 273)}°</p>`;
+            sat.innerHTML = `<p>${satValue[0].substring(0,4)}</p><img src="imgs/${satValue[1]}.png"></img><p>${parseInt(satValue[2] - 273)}°</p>`;
         })      
     })
     
