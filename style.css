@@ -8,36 +8,45 @@ img{
 
 }
 .contenedorGral{
-    margin: 40px;
-    
-    
+    margin: 40px;   
 }
+
 .contenedor{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .caja1{
-    flex: 300px;
     background-color: white;
     border-radius: 15px 0 0 15px;
 }
 
 .caja2{
-    flex: 700px;
+    
     background-color:  #f6f6f8;
     border-radius: 0 15px 15px 0;
 }
 
-.contenidoCaja2, .contenidoCaja1{
+.contenidoCaja1, .contenidoCaja2{
     margin: 30px;
     font-weight: bold;
-
 }
+
+.contenidoCaja1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
 .contenidoCaja1 img{
     width: 350px;
 }
 
+.display{
+    text-align: center;
+}
 
 .temp, .desc{
     color: dimgrey; 
@@ -61,33 +70,40 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 0px;
+/*  border: solid;*/
 }
 
 .contenedorDias div{
     background-color: white;
     margin: 5px;
     text-align: center;
-    
     border-radius: 10px;
 }
 
 
 .contenedorDatos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 15px;
+/*  border: solid;
+    border-color: red;*/
 }
 
-.contenedorDatos div{
+.contenedorDatos .fila{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+/*  border: solid;
+    border-color: blue;*/
+}
+
+.contenedorDatos .fila div{
     width: 230px;
-    margin: 5px;
+    margin: 15px;
     padding-top: 15px;
     background-color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 1rem;
     border-radius: 10px;
+/*  border: solid;
+    border-color: brown;*/
 }
 
 .contenedorDatos div img{
@@ -105,3 +121,25 @@ img{
     height: 150px;
 }
 
+
+ @media screen and (max-width: 1300px){
+
+        .contenedor{
+        flex-direction: column;
+        
+    }
+
+        .caja1{
+        border-radius: 15px 15px 0 0;
+    }
+
+    .caja2{
+        border-radius: 0 0 15px 15px;
+    }
+
+    .contenidoCaja1 .ciudad{
+    width: 80%;
+    margin-left: 10%;
+    }
+
+}
