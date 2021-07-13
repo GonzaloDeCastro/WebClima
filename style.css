@@ -31,13 +31,18 @@ img{
 
 .contenidoCaja2, .contenidoCaja1{
     margin: 30px;
+    font-weight: bold;
+
+}
+.contenidoCaja1 img{
+    width: 350px;
 }
 
 
-.tituloPrimero, .tituloSegundo, .contenedorDias, .contenedorDatos{
-/* border: solid;*/
+.temp, .desc{
+    color: dimgrey; 
+    font-size: 30px;
 }
-
 .tituloPrimero{
     display: flex;
     justify-content: space-between;
@@ -63,6 +68,7 @@ img{
     background-color: white;
     margin: 5px;
     text-align: center;
+    
     border-radius: 10px;
 }
 
@@ -71,20 +77,25 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 5px;
+    padding: 15px;
 }
 
 .contenedorDatos div{
     width: 230px;
-    background-color: white;
     margin: 5px;
+    padding-top: 15px;
+    background-color: white;
     text-align: center;
-    line-height: 150px;
     font-size: 30px;
     border-radius: 10px;
 }
 
-.desc, .temp, .viento, .pais, .humedad, .presion,.visibilidad,.sensacionTermica{
+.contenedorDatos div img{
+    width: 100px;
+    height: 100px;
+}
+
+.viento, .pais, .humedad, .presion,.visibilidad,.sensacionTermica{
     font-size: 1rem;
     font-weight: bold;
 }
